@@ -1,0 +1,14 @@
+#!/bin/bash
+
+names=(./files/*)
+
+for i in ${names[@]}
+do 
+    for j in {a..z}
+        do
+            name=${i:8:15}
+            if [[ $name = $j* ]] || [[ $name = ${j^^}* ]]; then
+                mv $i ./$j
+            fi
+    done
+done
